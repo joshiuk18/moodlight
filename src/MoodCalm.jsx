@@ -8,6 +8,11 @@ function MoodCalm() {
     useEffect(() => {
         setMessage("take a deep breath");
         document.body.style.backgroundColor = "blue";
+
+        setTimeout(() => {
+            setMessage("");
+            document.body.style.backgroundColor = "white";
+        }, 5000);
     }, []);
 
     return (

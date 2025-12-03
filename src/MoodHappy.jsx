@@ -8,6 +8,11 @@ function MoodHappy() {
     useEffect(() => {
         setMessage("You are glowing today");
         document.body.style.backgroundColor = "yellow";
+
+        setTimeout(() => {
+            setMessage("");
+            document.body.style.backgroundColor = "white";
+        }, 5000);
     }, []);
 
     return (

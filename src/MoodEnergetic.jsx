@@ -8,6 +8,11 @@ function MoodEnergetic() {
     useEffect(() => {
         setMessage("let's go!");
         document.body.style.backgroundColor = "orange";
+
+        setTimeout(() => {
+            setMessage("");
+            document.body.style.backgroundColor = "white";
+        }, 5000);
     }, []);
 
     return (
