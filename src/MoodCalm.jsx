@@ -7,23 +7,22 @@ function MoodCalm() {
     let [message, setMessage] = useState("");
     let [color, setColor] = useState(null);
 
-    let moodCalm = () => {
-        setCalm(() => {
-            return {
-                isCalm: true
-            }
-        });
-        setMessage("take a deep breadth");
-    }
+    const moodCalm = () => {
+        setCalm({ isCalm: true });
+        setMessage("let's go!");
+        setColor("blue");
+    };
 
-    useEffect(function printCalm() {
-        setColor(document.body.style.backgroundColor = color);
+    useEffect(() => {
+        if (color) {
+            document.body.style.backgroundColor = color;
+        }
     }, [color]);
 
     return (
         <div>
             <h2>{message}</h2>
-            <button onClick={() => { moodCalm(message), setColor("blue") }}>Calm</button>
+            <button onClick={moodCalm}>Calm</button>
         </div>
 
     )

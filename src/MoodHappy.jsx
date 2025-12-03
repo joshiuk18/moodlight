@@ -7,23 +7,22 @@ function MoodHappy() {
     let [message, setMessage] = useState("");
     let [color, setColor] = useState(null);
 
-    let moodHappy = () => {
-        setHappy(() => {
-            return {
-                isHappy: true
-            }
-        });
-        setMessage("you are glowing today");
-    }
+    const moodHappy = () => {
+        setHappy({ isHappy: true });
+        setMessage("You are glowing today");
+        setColor("yellow");
+    };
 
-    useEffect(function printHappy() {
-        setColor(document.body.style.backgroundColor = color);
+    useEffect(() => {
+        if (color) {
+            document.body.style.backgroundColor = color;
+        }
     }, [color]);
 
     return (
         <div>
             <h2>{message}</h2>
-            <button onClick={() => { moodHappy(message), setColor("yellow") }}>Happy</button>
+            <button onClick={moodHappy}>Happy</button>
         </div >
 
     )

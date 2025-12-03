@@ -7,24 +7,23 @@ function MoodEnergetic() {
     let [message, setMessage] = useState("");
     let [color, setColor] = useState(null);
 
-    let moodEnergetic = () => {
-        setEnergetic(() => {
-            return {
-                isEnergetic: true
-            }
-        });
+    const moodEnergetic = () => {
+        setEnergetic({ isEnergetic: true });
         setMessage("let's go!");
-    }
+        setColor("orange");
+    };
 
-    useEffect(function printEnergetic() {
-        setColor(document.body.style.backgroundColor = color);
+    useEffect(() => {
+        if (color) {
+            document.body.style.backgroundColor = color;
+        }
     }, [color]);
 
     return (
         <div>
             <h2>{message}</h2>
-            <button onClick={() => { moodEnergetic(message), setColor("orange") }}>Energetic</button>
-        </div>
+            <button onClick={moodEnergetic}>Energetic</button>
+        </div >
 
     )
 }
